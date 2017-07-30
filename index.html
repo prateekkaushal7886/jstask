@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TASK1</title>
+	<style type="text/css">
+		.fo
+		{
+			position: absolute;
+			top: 15%;
+			left: 30%;
+			width: 40%;
+		}
+		h1
+		{
+			text-align: center;
+			text-decoration: underline;
+		}
+		body
+		{
+			background-color: #e6ecf0;
+		}
+
+input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+}
+
+input[type=text],input[type=password] {
+    background-color: #73605b;
+    color: white;
+    width: 100%;
+    border-radius: 25px;
+    height: 45px;
+
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+  font-size: 140%;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+  font-size: 140%;
+}
+:-ms-input-placeholder { /* IE 10+ */
+   color: white;
+  font-size: 140%;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+  font-size: 140%;
+}
+	</style>
+
+<script type="text/javascript" src="js2.js"></script>
+
+	<script type="text/javascript">
+
+
+		function sub()
+		{
+			var str=$("#a3").val();
+			//document.getElementById("a2").innerHTML = str;
+			var res = str.substring(0,1);
+			var res1 = str.substring(1,str.length);	
+			if(res == res.toUpperCase())
+			{
+				if(res1 == res1.toLowerCase())
+				{
+					if(str.length <= 15)
+					{document.getElementById("a2").innerHTML = "";
+				return;}
+				}
+			}
+			
+				document.getElementById("a2").innerHTML = "first letter must be capital and all other letters small with maximum 15 letters";
+				
+			
+		}
+
+
+
+		function sub1()
+		{
+			var str=$("#a4").val();
+			//document.getElementById("a2").innerHTML = str;
+			var res = str.substring(0,1);
+			var res1 = str.substring(1,str.length);	
+			if(res == res.toUpperCase())
+			{
+				if(res1 == res1.toLowerCase())
+				{
+					if(str.length <= 15)
+					{document.getElementById("a5").innerHTML = "";
+				return;}
+				}
+			}
+			
+				document.getElementById("a5").innerHTML = "first letter must be capital and all other letters small with maximum 15 letters";
+				
+			
+		}
+	
+
+
+		function sub2()
+		{
+			var x=$("#a6").val();
+			
+    if (isNaN(x) || x < 1000000000 || x > 9999999999) {
+        text = "Input not valid";
+    } else {
+        text = "";
+    }
+    document.getElementById("a7").innerHTML = text;
+			
+		}
+
+		function sub3()
+		{
+			var x=$("#a8").val();
+	var text="ffff";
+	var p=0,l=x.length,c1=0,c2=0,c3=0;
+	while(p<l)
+	{
+		var o=x[p];
+		
+		if(o=='.')
+			{
+				c1++;
+				if(x.substring(p+1,p+4)=="com")
+					c3++;
+
+			}
+		if(o=='@')
+			c2++;
+		p++;
+	}
+	if(c1>0 && c2==1 && c3>0)
+		text="";
+	else
+		text="Invalid email id";
+
+
+    document.getElementById("a9").innerHTML = text;
+			
+		}
+
+function sub4()
+		{
+			var x=$("#a10").val();
+	var text="ffff";
+	
+
+
+
+
+var p=0,l=x.length,c1=0,c2=0,c3=0,c4=0,c5=0;
+    while(p<l)
+    {
+        var o=x[p];
+        
+        if(o==o.toLowerCase())
+            {
+                c1++;
+                            }
+        if(o== o.toUpperCase())
+            c2++;
+
+
+        var format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+
+if( o.match(format) ){
+    c3++;
+}
+
+
+if (isNaN(o) || o < 1|| o > 10)
+    c5=0;
+else
+	c4++;
+
+
+
+
+        p++;
+    }
+    if(c1>0 && c2>0 && c3>0 && c4>0)
+        text="";
+    else
+        text="1 capital ,1 small letter,1 special character,1 numeral required";
+
+
+
+    document.getElementById("a11").innerHTML = text;
+			
+		}
+
+	
+	</script>
+</head>
+<body>
+
+
+<div class="fo">
+<h1>FORM VALIDATION</h1>
+<form>
+	<table>
+		<tr>
+			<td>
+				<input type="text" name="firstname" placeholder=" FIRSTNAME" id="a3" onkeyup="sub()" required>
+
+			</td>
+			<td id=""><p id="a2"></p></td>
+		</tr>
+
+<br /><br />
+		<tr>
+			<td>
+				<input type="text" name="lastname" placeholder=" LASTNAME" id="a4" onkeyup="sub1()" required>
+
+			</td>
+			<td id=""><p id="a5"></p></td>
+		</tr>
+
+
+
+
+<br /><br />
+		<tr>
+			<td>
+				<input type="text" name="mobile" placeholder=" MOBILE NUMBER" id="a6" onkeyup="sub2()" required>
+
+			</td>
+			<td id=""><p id="a7"></p></td>
+		</tr>
+
+<tr>
+			<td>
+				<input type="text" name="email" placeholder=" E-MAIL ID" id="a8" onkeyup="sub3()" required>
+
+			</td>
+			<td id=""><p id="a9"></p></td>
+		</tr>
+
+
+<tr>
+			<td>
+				<input type="password" name="password" placeholder=" PASSWORD" id="a10" onkeyup="sub4()" required>
+
+			</td>
+			<td id=""><p id="a11"></p></td>
+		</tr>
+
+
+<tr>
+			<td>
+				<input type="submit" name="submit" id="" >
+
+			</td>
+			<td id=""><p id="a"></p></td>
+		</tr>
+
+	</table>
+</form>
+</div>
+
+</body>
+</html>
